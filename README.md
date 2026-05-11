@@ -5,3 +5,8 @@ Minigames:
 - Dining hall rush
 - Campus scooter races
 - Rhythm/music mini games
+
+Systems: 
+- Matchmaking
+- Cosmetics
+- Rankings
