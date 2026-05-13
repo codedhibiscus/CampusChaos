@@ -1,0 +1,17 @@
+# --- Unity Folders to Ignore ---
+/[Cc]ampus[Cc]haos_[Pp]roject/[Ll]ibrary/
+/[Cc]ampus[Cc]haos_[Pp]roject/[Ll]ogs/
+/[Cc]ampus[Cc]haos_[Pp]roject/[Uu]ser[Ss]ettings/
+/[Cc]ampus[Cc]haos_[Pp]roject/[Oo]bj/
+/[Cc]ampus[Cc]haos_[Pp]roject/[Tt]emp/
+
+# --- VS Code / IDE ---
+.vscode/
+.vs/
+*.csproj
+*.sln
+*.userprefs
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
