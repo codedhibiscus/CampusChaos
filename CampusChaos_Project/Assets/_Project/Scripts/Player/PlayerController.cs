@@ -48,25 +48,29 @@ public class PlayerController : NetworkBehaviour
     {
         if (moveInput.magnitude >= 0.1f)
         {
-            //Get the camera's forward and right vectors
             Vector3 camForward = Camera.main.transform.forward;
             Vector3 camRight = Camera.main.transform.right;
 
-            //Flatten them so the player doesn't try to walk "up" into the sky
             camForward.y = 0;
             camRight.y = 0;
             camForward.Normalize();
             camRight.Normalize();
 
-            //Calculate the new movement direction relative to the camera
             Vector3 relativeMove = (camForward * moveInput.z) + (camRight * moveInput.x);
 
-            //Rotate the player to face this new relative direction
+            // Rotation - Keep this the same
             Quaternion targetRotation = Quaternion.LookRotation(relativeMove);
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
 
-            //Move the player in that relative direction
-            rb.MovePosition(rb.position + relativeMove * moveSpeed * Time.fixedDeltaTime);
+            // CHANGE THIS: Instead of MovePosition, we set Velocity
+            // This works better with Rigidbody Interpolation
+            Vector3 targetVelocity = relativeMove * moveSpeed;
+            rb.linearVelocity = new Vector3(targetVelocity.x, rb.linearVelocity.y, targetVelocity.z);
+        }
+        else
+        {
+            // Stop moving when no keys are pressed (optional, prevents sliding)
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
         }
     }
 }

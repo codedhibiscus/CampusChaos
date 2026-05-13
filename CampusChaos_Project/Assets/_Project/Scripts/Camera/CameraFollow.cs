@@ -1,4 +1,5 @@
 using Unity.Netcode;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
@@ -8,6 +9,8 @@ public class CameraFollow : MonoBehaviour
     [Header("Positioning")]
     [SerializeField] private Vector3 offset = new Vector3(0, 4, -6); // Up 4 units, Back 6 units
     [SerializeField] private float smoothSpeed = 0.125f;
+    private Vector3 currentVelocity = Vector3.zero;
+    
 
     // LateUpdate runs AFTER the player has moved, preventing the camera from "jittering"
     void LateUpdate()
@@ -19,11 +22,12 @@ public class CameraFollow : MonoBehaviour
             return;
         }
 
+        
         //Calculate the position based on the player's current rotation
         Vector3 desiredPosition = target.position + (target.rotation * offset);
         
         //Smoothly slide the camera toward that goal
-        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref currentVelocity, smoothSpeed);
 
         //Always look at the player's center
         transform.LookAt(target.position + Vector3.up * 1.5f);
