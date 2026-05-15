@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : NetworkBehaviour
 {
-    [Header("Movement Settings")]
+    [Header("Movement Settings")] //Header for visual organization in Unity Editor
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 10f;
 
