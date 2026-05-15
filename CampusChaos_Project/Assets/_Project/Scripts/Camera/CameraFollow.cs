@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     private Transform target;
     
-    [Header("Positioning")]
+    [Header("Positioning")] //Header for visual organization in Unity Editor
     [SerializeField] private Vector3 offset = new Vector3(0, 4, -6); // Up 4 units, Back 6 units
     [SerializeField] private float smoothSpeed = 0.125f;
     private Vector3 currentVelocity = Vector3.zero;
