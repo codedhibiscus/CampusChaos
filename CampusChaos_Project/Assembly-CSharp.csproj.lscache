@@ -89,7 +89,9 @@ Assets/
  TutorialInfo/Scripts/Readme.cs
  _Project/Scripts/
   Camera/CameraFollow.cs
-  Player/PlayerController.cs
+  Player/
+   ClientNetworkTransform.cs
+   PlayerController.cs
   UI/NetworkConnect.cs
 Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
 
