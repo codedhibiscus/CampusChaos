@@ -34,14 +34,16 @@ public class CameraFollow : MonoBehaviour
 
     private void FindLocalPlayer()
     {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject p in players)
+        PlayerController[] players = Object.FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
+
+        foreach (PlayerController p in players)
         {
             // Only follow the player that belongs to THIS computer
-            var networkObj = p.GetComponent<NetworkObject>();
-            if (networkObj != null && networkObj.IsOwner)
+            NetworkObject networkObj = p.GetComponent<NetworkObject>();
+            if (networkObj != null && networkObj.IsLocalPlayer)
             {
                 target = p.transform;
+                return;
             }
         }
     }
