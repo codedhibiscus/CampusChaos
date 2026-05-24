@@ -9,6 +9,12 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 10f;
 
+    [Header("Dining Hall Dash Game Loop")]
+    public bool needsPizza = true;    // The player's random checklist
+    public bool needsSalad = true;
+    public bool needsBurger = true;
+    public bool hasAllFood = false;   // Becomes true when all above are false
+
     private Rigidbody rb;
     private Vector3 moveInput;
 
@@ -71,6 +77,33 @@ public class PlayerController : NetworkBehaviour
         {
             // Stop moving when no keys are pressed (optional, prevents sliding)
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
+        }
+    }
+
+    public void CollectFoodItem(string stationName)
+    {
+        if(!IsOwner) return;
+        if (stationName == "Pizza" && needsPizza)
+        {
+            needsPizza = false;
+            Debug.Log($"[Inventory] Grabbed Pizza!");
+        }
+        else if (stationName == "Salad" && needsSalad)
+        {
+            needsSalad = false;
+            Debug.Log($"[Inventory] Grabbed Salad!");
+        }
+        else if (stationName == "Burger" && needsBurger)
+        {
+            needsBurger = false;
+            Debug.Log($"[Inventory] Grabbed Burger!");
+        }
+
+        // Check if the ticket is cleared
+        if (!(needsPizza || needsSalad || needsBurger))
+        {
+            hasAllFood = true;
+            Debug.Log("[Inventory] Order complete! Go find an open Table!");
         }
     }
 }
