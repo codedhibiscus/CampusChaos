@@ -20,7 +20,7 @@ public class GoalZone : MonoBehaviour
                 player.needsSalad = true;
                 player.needsBurger = false;
                 player.hasAllFood = false;
-                Debug.Log("[Table] New order assigned!");
+                Debug.Log("[Table] New order assigned!: Pizza, Salad");
             }
             else
             {

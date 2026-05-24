@@ -23,6 +23,15 @@ public class PlayerController : NetworkBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    // Start runs when the player script is first initialized in the scene
+    private void Start()
+    {
+        // Only print the order for the player sitting at THIS computer
+        if (IsOwner)
+        {
+            Debug.Log("[Ticket] Welcome to the Dining Hall! Your first order is: Pizza, Salad, Burger");
+        }
+    }
     // FixedUpdate is best for physics-based movement (Rigidbody)
     private void FixedUpdate()
     {
