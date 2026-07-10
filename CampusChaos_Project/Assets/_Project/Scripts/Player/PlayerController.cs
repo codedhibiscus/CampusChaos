@@ -16,9 +16,13 @@ public class PlayerController : NetworkBehaviour
     public bool hasAllFood = false;   // Becomes true when all above are false
 
     [Header("Current Order Inventory Status")]
-    public bool hasMainCourse = false;
-    public bool hasSidesAndSalads = false;
-    public bool hasDrinksAndSweets = false;
+    public bool HasMainCourse = false;
+    public bool HasSidesAndSalads = false;
+    public bool HasDrinksAndSweets = false;
+
+    [Header("Active Order System")]
+    public Ticket ActiveTicket;
+
 
     private Rigidbody rb;
     private Vector3 moveInput;
@@ -34,9 +38,36 @@ public class PlayerController : NetworkBehaviour
         // Only print the order for the player sitting at THIS computer
         if (IsOwner)
         {
-            Debug.Log("[Ticket] Welcome to the Dining Hall! Your first order is: Pizza, Salad, Burger");
+            RequestNewTicket();
         }
     }
+
+    public void RequestNewTicket()
+    {
+        HasMainCourse = false;
+        HasSidesAndSalads = false;
+        HasDrinksAndSweets = false;
+
+        if(TicketManager.Instance != null)
+        {
+            ActiveTicket = TicketManager.Instance.GenerateRandomTicket();
+
+            //Print the active objective
+            string orderString = "Your order ticket: ";
+            if (ActiveTicket.RequiresMain) orderString += "[Main Course] ";
+            if (ActiveTicket.RequiresSide) orderString += "[Side/Salad] ";
+            if (ActiveTicket.RequiresDrink) orderString += "[Drink/Sweet] ";
+            Debug.Log($"[UI Ticket Notification] {orderString}");
+        }
+    }
+
+    /* Checks if the player has collected everything they need */
+    public bool CheckIfIventoryMatchesTicket()
+    {
+        if (ActiveTicket == null) return false;
+        return ActiveTicket.IsOrderComplete(HasMainCourse, HasSidesAndSalads, HasDrinksAndSweets);
+    }
+
     // FixedUpdate is best for physics-based movement (Rigidbody)
     private void FixedUpdate()
     {
@@ -102,30 +133,30 @@ public class PlayerController : NetworkBehaviour
         switch (category)
         {
             case FoodStation.StationCategory.MainCourse:
-                if (!hasMainCourse)
+                if (!HasMainCourse)
                 {
-                    hasMainCourse = true;
+                    HasMainCourse = true;
                     Debug.Log("[Inventory] Added a Main Course item to your tray!");
                 }
                 break;
 
             case FoodStation.StationCategory.SidesAndSalads:
-                if (!hasSidesAndSalads)
+                if (!HasSidesAndSalads)
                 {
-                    hasSidesAndSalads = true;
+                    HasSidesAndSalads = true;
                     Debug.Log("[Inventory] Added a Side/Salad item to your tray!");
                 }
                 break;
 
             case FoodStation.StationCategory.DrinksAndSweets:
-                if (!hasDrinksAndSweets)
+                if (!HasDrinksAndSweets)
                 {
-                    hasDrinksAndSweets = true;
+                    HasDrinksAndSweets = true;
                     Debug.Log("[Inventory] Added a Drink/Sweet item to your tray!");
                 }
                 break;
         }
 
-        //Maybe call a ticket tracker check here later to see if the whole order is completed
+        //TODO: Maybe call a ticket tracker check here later to see if the whole order is completed
     }
 }
