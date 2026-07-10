@@ -3,7 +3,16 @@ using Unity.Netcode;
 
 public class FoodStation : MonoBehaviour
 {
-    [SerializeField] private string stationFoodType; // Set to the specific type in Inspector
+    public enum StationCategory
+    {
+        MainCourse,
+        SidesAndSalads,
+        DrinksAndSweets
+    }
+
+    [Header("Station Settings")]
+    [SerializeField] private StationCategory stationFoodType; // Set to the specific type in Inspector
+    [SerializeField] private string specificStationName; //"Grill", etc.
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,7 +20,7 @@ public class FoodStation : MonoBehaviour
         if (player != null)
         {
             // Hand the food to the player script
-            player.CollectFoodItem(stationFoodType);
+            player.CollectFoodFromCategory(stationFoodType);
         }
     }
 }
