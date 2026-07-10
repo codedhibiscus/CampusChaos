@@ -15,6 +15,7 @@ public class PlayerController : NetworkBehaviour
     public bool needsBurger = true;
     public bool hasAllFood = false;   // Becomes true when all above are false
 
+    [Header("Current Order Inventory Status")]
     public bool hasMainCourse = false;
     public bool hasSidesAndSalads = false;
     public bool hasDrinksAndSweets = false;
