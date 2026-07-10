@@ -15,6 +15,11 @@ public class PlayerController : NetworkBehaviour
     public bool needsBurger = true;
     public bool hasAllFood = false;   // Becomes true when all above are false
 
+    [Header("Current Order Inventory Status")]
+    public bool hasMainCourse = false;
+    public bool hasSidesAndSalads = false;
+    public bool hasDrinksAndSweets = false;
+
     private Rigidbody rb;
     private Vector3 moveInput;
 
@@ -89,30 +94,38 @@ public class PlayerController : NetworkBehaviour
         }
     }
 
-    public void CollectFoodItem(string stationName)
+    //Runs when a player runs into any valid food station
+    public void CollectFoodFromCategory(FoodStation.StationCategory category)
     {
         if(!IsOwner) return;
-        if (stationName == "Pizza" && needsPizza)
+        
+        switch (category)
         {
-            needsPizza = false;
-            Debug.Log($"[Inventory] Grabbed Pizza!");
-        }
-        else if (stationName == "Salad" && needsSalad)
-        {
-            needsSalad = false;
-            Debug.Log($"[Inventory] Grabbed Salad!");
-        }
-        else if (stationName == "Burger" && needsBurger)
-        {
-            needsBurger = false;
-            Debug.Log($"[Inventory] Grabbed Burger!");
+            case FoodStation.StationCategory.MainCourse:
+                if (!hasMainCourse)
+                {
+                    hasMainCourse = true;
+                    Debug.Log("[Inventory] Added a Main Course item to your tray!");
+                }
+                break;
+
+            case FoodStation.StationCategory.SidesAndSalads:
+                if (!hasSidesAndSalads)
+                {
+                    hasSidesAndSalads = true;
+                    Debug.Log("[Inventory] Added a Side/Salad item to your tray!");
+                }
+                break;
+
+            case FoodStation.StationCategory.DrinksAndSweets:
+                if (!hasDrinksAndSweets)
+                {
+                    hasDrinksAndSweets = true;
+                    Debug.Log("[Inventory] Added a Drink/Sweet item to your tray!");
+                }
+                break;
         }
 
-        // Check if the ticket is cleared
-        if (!(needsPizza || needsSalad || needsBurger))
-        {
-            hasAllFood = true;
-            Debug.Log("[Inventory] Order complete! Go find an open Table!");
-        }
+        //Maybe call a ticket tracker check here later to see if the whole order is completed
     }
 }

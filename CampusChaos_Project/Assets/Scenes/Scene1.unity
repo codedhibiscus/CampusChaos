@@ -681,7 +681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: 
+  stationFoodType: 1
+  specificStationName: Fruit Bar
 --- !u!65 &200514763
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1009,7 +1010,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: Burger
+  stationFoodType: 0
+  specificStationName: Grill Station
 --- !u!1 &301556731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: Pizza
+  stationFoodType: 2
+  specificStationName: Dessert Bar
 --- !u!65 &355389685
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1572,7 +1575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: 
+  stationFoodType: 0
+  specificStationName: Pasta Station
 --- !u!65 &508693299
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1835,7 +1839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: Salad
+  stationFoodType: 1
+  specificStationName: Salad Bar
 --- !u!65 &608715918
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1961,7 +1966,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: Pizza
+  stationFoodType: 0
+  specificStationName: Pizza Station
 --- !u!65 &611414762
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2087,7 +2093,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: 
+  stationFoodType: 1
+  specificStationName: Fruit Bar
 --- !u!65 &676081626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2475,7 +2482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: Burger
+  stationFoodType: 0
+  specificStationName: Grill Station
 --- !u!65 &863456036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2905,7 +2913,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: Pizza
+  stationFoodType: 0
+  specificStationName: Pizza Station
 --- !u!1 &944590549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3271,7 +3280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: Salad
+  stationFoodType: 1
+  specificStationName: Salad Bar
 --- !u!1 &1033583051
 GameObject:
   m_ObjectHideFlags: 0
@@ -3681,7 +3691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: 
+  stationFoodType: 2
+  specificStationName: Dessert Bar
 --- !u!65 &1156928477
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4723,7 +4734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: 
+  stationFoodType: 2
+  specificStationName: Drinks
 --- !u!65 &1474425772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6201,7 +6213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: Burger
+  stationFoodType: 2
+  specificStationName: Drinks
 --- !u!65 &1841945263
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6735,7 +6748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df13d04b31cad45bbc20846cfb36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodStation
-  stationFoodType: 
+  stationFoodType: 0
+  specificStationName: Pasta Station
 --- !u!65 &2098786635
 BoxCollider:
   m_ObjectHideFlags: 0
