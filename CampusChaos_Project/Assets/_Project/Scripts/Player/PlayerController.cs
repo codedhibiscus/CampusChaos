@@ -39,7 +39,6 @@ public class PlayerController : NetworkBehaviour
         if (IsOwner)
         {
             RequestNewTicket();
-            Debug.Log("[Ticket] Welcome to the Dining Hall! Your first order is: Pizza, Salad, Burger");
         }
     }
 
@@ -58,7 +57,7 @@ public class PlayerController : NetworkBehaviour
             if (ActiveTicket.RequiresMain) orderString += "[Main Course] ";
             if (ActiveTicket.RequiresSide) orderString += "[Side/Salad] ";
             if (ActiveTicket.RequiresDrink) orderString += "[Drink/Sweet] ";
-            Debug.Log($"[UI Ticket Notificqatio] {orderString}");
+            Debug.Log($"[UI Ticket Notification] {orderString}");
         }
     }
 
