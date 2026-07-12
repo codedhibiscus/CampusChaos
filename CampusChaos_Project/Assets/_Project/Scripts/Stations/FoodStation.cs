@@ -1,5 +1,7 @@
 using UnityEngine;
 using Unity.Netcode;
+using TMPro;
+using Unity.VisualScripting;
 
 public class FoodStation : MonoBehaviour
 {
@@ -13,6 +15,15 @@ public class FoodStation : MonoBehaviour
     [Header("Station Settings")]
     [SerializeField] private StationCategory stationFoodType; // Set to the specific type in Inspector
     [SerializeField] private string specificStationName; //"Grill", etc.
+
+    [Header("UI References")]
+    [SerializeField] private TextMeshProUGUI stationTextLabel; //child text component will be here inside prefab
+
+    private void Awake()
+    {
+        //Auto overwrite the label at runtime with custom station name
+        if (stationTextLabel != null) stationTextLabel.text = specificStationName.ToUpper();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
