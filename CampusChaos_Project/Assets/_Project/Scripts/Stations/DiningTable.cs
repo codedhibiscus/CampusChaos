@@ -30,25 +30,53 @@ public class DiningTable : MonoBehaviour
         
         if (player != null && player.IsOwner)
         {
-            //Does the player actually have their full meal?
+            //Is the table currently dirty?
             if (isDirty)
             {
                 Debug.Log("[Table] This table is dirty! Go find another one.");
                 return;
             }
             
+            //Does the player's order match the ticket
             if (player.CheckIfIventoryMatchesTicket())
             {
                 Debug.Log("[Table] Order delivered successfully! Scoring points.");
 
                 player.RequestNewTicket();
 
-                //TODO: Trigger the dirty dishes visual loop here
+
+                TriggerDirtyDishesCooldown(); //Triggers the lockout loop
             }
             else
             {
                 Debug.Log("[Table] Your order is incomplete! Look closely at your ticket requirements.");
             }
         }
+    }
+
+    private void TriggerDirtyDishesCooldown()
+    {
+        isDirty = true;
+
+        //Spawn placeholder trash if an asset is assigned
+        if (dirtyTrayPrefab != null)
+        {
+            Vector3 spawnPos = traySpawnPoint != null ? traySpawnPoint.position : transform.position + Vector3.up * 0.5f;
+            Quaternion spawnRot = traySpawnPoint != null ? traySpawnPoint.rotation : Quaternion.identity;
+
+            currentTray = Instantiate(dirtyTrayPrefab, spawnPos, spawnRot);
+        }
+
+        //Start the cooldown to cleanup table
+        StartCoroutine(CleanupTableRoutine());
+    }
+
+    private IEnumerator CleanupTableRoutine()
+    {
+        yield return new WaitForSeconds(cleanupCooldown);
+
+        if(currentTray != null) Destroy(currentTray);
+        isDirty = false;
+        Debug.Log($"[Table Reset] {gameObject.name} has been cleared and is ready for new people!");
     }
 }
