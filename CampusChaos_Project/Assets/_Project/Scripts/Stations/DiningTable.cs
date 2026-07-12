@@ -18,7 +18,7 @@ public class DiningTable : MonoBehaviour
     [Header("Dirty Tray Mechanics")]
     [SerializeField] private GameObject dirtyTrayPrefab; //TODO: Create this later
     [SerializeField] private Transform traySpawnPoint;
-    [SerializeField] private float cleanupCooldown = 5.0f; //Seconds the table stays dirty
+    [SerializeField] private float cleanupCooldown = 10.0f; //Seconds the table stays dirty
 
     [Header("Runtime State")]
     [SerializeField] private bool isDirty = false;
@@ -61,7 +61,7 @@ public class DiningTable : MonoBehaviour
         //Spawn placeholder trash if an asset is assigned
         if (dirtyTrayPrefab != null)
         {
-            Vector3 spawnPos = traySpawnPoint != null ? traySpawnPoint.position : transform.position + Vector3.up * 0.5f;
+            Vector3 spawnPos = traySpawnPoint != null ? traySpawnPoint.position : transform.position + Vector3.up * 0.1f;
             Quaternion spawnRot = traySpawnPoint != null ? traySpawnPoint.rotation : Quaternion.identity;
 
             currentTray = Instantiate(dirtyTrayPrefab, spawnPos, spawnRot);
