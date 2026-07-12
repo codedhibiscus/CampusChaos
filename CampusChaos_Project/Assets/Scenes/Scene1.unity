@@ -1137,6 +1137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cbe9841a47bb145bb0d5adb1f624ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoalZone
+  configType: 1
+  tableCapacity: 4
+  dirtyTrayPrefab: {fileID: 6160152611206501003, guid: 7ecd0f060eff19248972ea712a4e3ded, type: 3}
+  traySpawnPoint: {fileID: 0}
+  cleanupCooldown: 5
   isDirty: 0
 --- !u!1 &312430354
 GameObject:
@@ -1185,6 +1190,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cbe9841a47bb145bb0d5adb1f624ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoalZone
+  configType: 2
+  tableCapacity: 6
+  dirtyTrayPrefab: {fileID: 6160152611206501003, guid: 7ecd0f060eff19248972ea712a4e3ded, type: 3}
+  traySpawnPoint: {fileID: 0}
+  cleanupCooldown: 5
   isDirty: 0
 --- !u!65 &312430357
 BoxCollider:
@@ -2403,6 +2413,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cbe9841a47bb145bb0d5adb1f624ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoalZone
+  configType: 0
+  tableCapacity: 1
+  dirtyTrayPrefab: {fileID: 6160152611206501003, guid: 7ecd0f060eff19248972ea712a4e3ded, type: 3}
+  traySpawnPoint: {fileID: 0}
+  cleanupCooldown: 5
   isDirty: 0
 --- !u!65 &842033463
 BoxCollider:
@@ -2974,7 +2989,7 @@ GameObject:
   - component: {fileID: 944590554}
   - component: {fileID: 944590553}
   - component: {fileID: 944590552}
-  - component: {fileID: 944590551}
+  - component: {fileID: 944590555}
   m_Layer: 0
   m_Name: OneTop (1)
   m_TagString: Untagged
@@ -2997,19 +3012,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1924649522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &944590551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944590549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50cbe9841a47bb145bb0d5adb1f624ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GoalZone
-  isDirty: 0
 --- !u!65 &944590552
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3088,6 +3090,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944590549}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &944590555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944590549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50cbe9841a47bb145bb0d5adb1f624ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DiningTable
+  configType: 0
+  tableCapacity: 1
+  dirtyTrayPrefab: {fileID: 6160152611206501003, guid: 7ecd0f060eff19248972ea712a4e3ded, type: 3}
+  traySpawnPoint: {fileID: 0}
+  cleanupCooldown: 5
+  isDirty: 0
 --- !u!1 &975099758
 GameObject:
   m_ObjectHideFlags: 0
@@ -3866,6 +3886,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cbe9841a47bb145bb0d5adb1f624ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoalZone
+  configType: 1
+  tableCapacity: 4
+  dirtyTrayPrefab: {fileID: 6160152611206501003, guid: 7ecd0f060eff19248972ea712a4e3ded, type: 3}
+  traySpawnPoint: {fileID: 0}
+  cleanupCooldown: 5
   isDirty: 0
 --- !u!65 &1178933611
 BoxCollider:
@@ -4196,6 +4221,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cbe9841a47bb145bb0d5adb1f624ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoalZone
+  configType: 2
+  tableCapacity: 6
+  dirtyTrayPrefab: {fileID: 6160152611206501003, guid: 7ecd0f060eff19248972ea712a4e3ded, type: 3}
+  traySpawnPoint: {fileID: 0}
+  cleanupCooldown: 5
   isDirty: 0
 --- !u!65 &1229290178
 BoxCollider:
@@ -4515,7 +4545,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -4659,6 +4689,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cbe9841a47bb145bb0d5adb1f624ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoalZone
+  configType: 1
+  tableCapacity: 4
+  dirtyTrayPrefab: {fileID: 6160152611206501003, guid: 7ecd0f060eff19248972ea712a4e3ded, type: 3}
+  traySpawnPoint: {fileID: 0}
+  cleanupCooldown: 5
   isDirty: 0
 --- !u!65 &1445826288
 BoxCollider:
@@ -4979,7 +5014,7 @@ GameObject:
   - component: {fileID: 1522485188}
   - component: {fileID: 1522485187}
   - component: {fileID: 1522485186}
-  - component: {fileID: 1522485185}
+  - component: {fileID: 1522485189}
   m_Layer: 0
   m_Name: OneTop (2)
   m_TagString: Untagged
@@ -5002,19 +5037,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1924649522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1522485185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522485183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50cbe9841a47bb145bb0d5adb1f624ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GoalZone
-  isDirty: 0
 --- !u!65 &1522485186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5093,6 +5115,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522485183}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1522485189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522485183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50cbe9841a47bb145bb0d5adb1f624ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DiningTable
+  configType: 0
+  tableCapacity: 1
+  dirtyTrayPrefab: {fileID: 6160152611206501003, guid: 7ecd0f060eff19248972ea712a4e3ded, type: 3}
+  traySpawnPoint: {fileID: 0}
+  cleanupCooldown: 5
+  isDirty: 0
 --- !u!1 &1556962779
 GameObject:
   m_ObjectHideFlags: 0
