@@ -1237,6 +1237,14 @@ PrefabInstance:
       propertyPath: specificStationName
       value: Drinks
       objectReference: {fileID: 0}
+    - target: {fileID: 7206910064376529036, guid: 75434a8216574ea4c99e0c4821cd8824, type: 3}
+      propertyPath: stationFoodType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206910064376529036, guid: 75434a8216574ea4c99e0c4821cd8824, type: 3}
+      propertyPath: specificStationName
+      value: Drinks
+      objectReference: {fileID: 0}
     - target: {fileID: 8191717701492847374, guid: 75434a8216574ea4c99e0c4821cd8824, type: 3}
       propertyPath: m_Name
       value: Counter_Drinks
