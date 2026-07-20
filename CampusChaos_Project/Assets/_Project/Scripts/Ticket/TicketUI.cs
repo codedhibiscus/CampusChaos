@@ -62,4 +62,17 @@ public class TicketUI : MonoBehaviour
             if(ticket.RequiresDrink) SetRowState(drinkText, drinkCheckmark, hasDrink);
         }
     }
+
+    private void SetRowState(TextMeshProUGUI label, Image checkmark, bool isCollected)
+    {
+        if (label != null)
+        {
+            label.color = isCollected ? itemCollectedColor : itemPendingColor;
+        }
+
+        if (checkmark != null)
+        {
+            checkmark.enabled = isCollected;
+        }
+    }
 }
