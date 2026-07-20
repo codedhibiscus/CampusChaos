@@ -7,7 +7,7 @@ public class TicketUI : MonoBehaviour
     public static TicketUI Instance {get; private set;}
 
     [Header("Ticket Container UI")]
-    [SerializeField] private GameObject TicketPanel;
+    [SerializeField] private GameObject ticketPanel;
 
     [Header("Item Requirement Rows")]
     [SerializeField] private GameObject mainRow;
@@ -30,5 +30,36 @@ public class TicketUI : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+    }
+
+    /* Refresh the HUD panel to match the player's active requirements*/
+    public void UpdateTicketDisplay (Ticket ticket, bool hasMain, bool hasSide, bool hasDrink)
+    {
+        if (ticket == null)
+        {
+            if (ticketPanel != null) ticketPanel.SetActive(false);
+            return;
+        }
+
+        if (ticketPanel != null) ticketPanel.SetActive(true);
+
+        //Update the Main Course Row
+        if (mainRow != null)
+        {
+            mainRow.SetActive(ticket.RequiresMain);
+            if(ticket.RequiresMain) SetRowState(mainText, mainCheckmark, hasMain);
+        }
+
+        if (sideRow != null)
+        {
+            sideRow.SetActive(ticket.RequiresSide);
+            if(ticket.RequiresSide) SetRowState(sideText, sideCheckmark, hasSide);
+        }
+
+        if (drinkRow != null)
+        {
+            drinkRow.SetActive(ticket.RequiresDrink);
+            if(ticket.RequiresDrink) SetRowState(drinkText, drinkCheckmark, hasDrink);
+        }
     }
 }
