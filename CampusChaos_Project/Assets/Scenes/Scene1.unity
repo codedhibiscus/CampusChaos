@@ -5096,6 +5096,7 @@ GameObject:
   - component: {fileID: 1868667866}
   - component: {fileID: 1868667865}
   - component: {fileID: 1868667864}
+  - component: {fileID: 1868667867}
   m_Layer: 5
   m_Name: TicketPanel
   m_TagString: Untagged
@@ -5190,6 +5191,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868667862}
   m_CullTransparentMesh: 1
+--- !u!114 &1868667867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868667862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b589013d15b00a14f94388452da91328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TicketUI
+  ticketPanel: {fileID: 0}
+  mainRow: {fileID: 1748743725}
+  mainText: {fileID: 739360440}
+  mainCheckmark: {fileID: 72225427}
+  sideRow: {fileID: 57032946}
+  sideText: {fileID: 963018656}
+  sideCheckmark: {fileID: 359472404}
+  drinkRow: {fileID: 541388146}
+  drinkText: {fileID: 1521222356}
+  drinkCheckmark: {fileID: 1796798440}
+  itemPendingColor: {r: 1, g: 1, b: 1, a: 1}
+  itemCollectedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &1890049912
 GameObject:
   m_ObjectHideFlags: 0
