@@ -14,10 +14,13 @@ public class FoodStation : MonoBehaviour
 
     [Header("Station Settings")]
     [SerializeField] private StationCategory stationFoodType; // Set to the specific type in Inspector
-    [SerializeField] private string specificStationName; //"Grill", etc.
+    [SerializeField] private string specificStationName = "Pizza Station"; //"Grill", etc.
+    [SerializeField] private string specificItemName = "Pepperoni Pizza Slice";
+
 
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI stationTextLabel; //child text component will be here inside prefab
+
 
     private void Awake()
     {
