@@ -52,12 +52,7 @@ public class PlayerController : NetworkBehaviour
         {
             ActiveTicket = TicketManager.Instance.GenerateRandomTicket();
 
-            //Print the active objective
-            string orderString = "Your order ticket: ";
-            if (ActiveTicket.RequiresMain) orderString += "[Main Course] ";
-            if (ActiveTicket.RequiresSide) orderString += "[Side/Salad] ";
-            if (ActiveTicket.RequiresDrink) orderString += "[Drink/Sweet] ";
-            Debug.Log($"[UI Ticket Notification] {orderString}");
+            RefreshHUD();
         }
     }
 
@@ -157,6 +152,16 @@ public class PlayerController : NetworkBehaviour
                 break;
         }
 
+        RefreshHUD();
+
         //TODO: Maybe call a ticket tracker check here later to see if the whole order is completed
+    }
+
+    private void RefreshHUD()
+    {
+        if (IsOwner && TicketUI.Instance != null)
+        {
+            TicketUI.Instance.UpdateTicketDisplay(ActiveTicket, HasMainCourse, HasSidesAndSalads, HasDrinksAndSweets);
+        }
     }
 }
