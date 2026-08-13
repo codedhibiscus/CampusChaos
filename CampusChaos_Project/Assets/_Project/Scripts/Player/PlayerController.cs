@@ -121,9 +121,11 @@ public class PlayerController : NetworkBehaviour
     }
 
     //Runs when a player runs into any valid food station
-    public void CollectFoodFromCategory(FoodStation.StationCategory category)
+    public void CollectFoodFromCategory(FoodStation.StationCategory category, string itemName)
     {
         if(!IsOwner) return;
+
+        bool wasNewPickup = false;
         
         switch (category)
         {
@@ -131,6 +133,7 @@ public class PlayerController : NetworkBehaviour
                 if (!HasMainCourse)
                 {
                     HasMainCourse = true;
+                    wasNewPickup = true;
                     Debug.Log("[Inventory] Added a Main Course item to your tray!");
                 }
                 break;
@@ -139,6 +142,7 @@ public class PlayerController : NetworkBehaviour
                 if (!HasSidesAndSalads)
                 {
                     HasSidesAndSalads = true;
+                    wasNewPickup = true;
                     Debug.Log("[Inventory] Added a Side/Salad item to your tray!");
                 }
                 break;
@@ -147,14 +151,24 @@ public class PlayerController : NetworkBehaviour
                 if (!HasDrinksAndSweets)
                 {
                     HasDrinksAndSweets = true;
+                    wasNewPickup = true;
                     Debug.Log("[Inventory] Added a Drink/Sweet item to your tray!");
                 }
                 break;
         }
 
-        RefreshHUD();
+        if (wasNewPickup)
+        {
+            Debug.Log($"[Inventory] Added item to tray: {itemName}");
+            
+            RefreshHUD();
 
-        //TODO: Maybe call a ticket tracker check here later to see if the whole order is completed
+            if(TicketUI.Instance != null)
+            {
+                TicketUI.Instance.ShowPickupNotification($"Picked up: {itemName}!");
+            }
+
+        }
     }
 
     private void RefreshHUD()

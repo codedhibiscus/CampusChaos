@@ -34,7 +34,7 @@ public class FoodStation : MonoBehaviour
         if (player != null)
         {
             // Hand the food to the player script
-            player.CollectFoodFromCategory(stationFoodType);
+            player.CollectFoodFromCategory(stationFoodType, specificItemName);
         }
     }
 }
