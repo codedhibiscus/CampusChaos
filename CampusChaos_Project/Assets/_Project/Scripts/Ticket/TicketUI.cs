@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class TicketUI : MonoBehaviour
 {
@@ -25,6 +26,12 @@ public class TicketUI : MonoBehaviour
     [Header("UI Visual Configuration")]
     [SerializeField] private Color itemPendingColor = Color.white;
     [SerializeField] private Color itemCollectedColor = Color.green;
+
+    [Header("Pickup Popup UI")]
+    [SerializeField] private TextMeshProUGUI notificationText;
+    [SerializeField] private float notificationDuration = 2.0f;
+
+    private Coroutine notificationCoroutine;
 
     private void Awake()
     {
@@ -74,5 +81,23 @@ public class TicketUI : MonoBehaviour
         {
             checkmark.enabled = isCollected;
         }
+    }
+
+    public void ShowPickupNotification(string message)
+    {
+        if (notificationText == null) return;
+        if (notificationCoroutine != null) StopCoroutine(notificationCoroutine);
+    
+        notificationCoroutine = StartCoroutine(DisplayNotificationRoutine(message));
+    }
+
+    private System.Collections.IEnumerator DisplayNotificationRoutine(string message)
+    {
+        notificationText.text = message;
+        notificationText.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(notificationDuration);
+
+        notificationText.gameObject.SetActive(false);
     }
 }
